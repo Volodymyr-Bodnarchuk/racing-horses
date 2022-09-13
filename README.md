@@ -1,48 +1,65 @@
-# Front-End Developer test task
-We want you to implement a small web app which can display horse betting status.
+# Horse betting App
 
-Information about distance run by horse is available from a locally running server.
-Any additional visual enhancements will be a plus. 
-Be sure that your application is tested well.
+It's small web app which I extended just in self improvement purpose.
 
-## Requirements:
-- web app have to take data from local server
-- web app have to show horse run distance in real time 
+## Source code of this task:
 
-Ideas on how horse running progress can look like is up to you.
+[https://github.com/zakhar-bozhok-jito/jun-frontend-test-task](https://github.com/zakhar-bozhok-jito/jun-frontend-test-task)
 
-You should use following stack:
-- React (preferable with hooks)
-- Redux (with Redux-Thunk or any other Redux middleware you are familiar) or any other state-manager library you want
+Information about distance run by horses is available from a locally running server (http://localhost:3002).
+
+---
+
+## Stack:
+
+- React (create-react-app)
+- TypeScript
 - Socket.io - to connect to the server
-- any UI library you want, or you can use just pure CSS
-- Testing Library
+  <br/>
+  [https://socket.io/how-to/use-with-react-hooks](https://socket.io/how-to/use-with-react-hooks) - Socket.io React DOCs
 
-We will assess by following criteria:
-- How you application works
-- Project structure, files and folders organization
-- Code quality, readability, etc.
-- React knowledge
-- Clean and understandable git history
+  [https://www.youtube.com/watch?v=djMy4QsPWiI&ab_channel=PedroTech](https://www.youtube.com/watch?v=djMy4QsPWiI&ab_channel=PedroTech) - Youtube tutorial for quick start
 
-### How to run the server
-```cd server && npm install && npm run start```
+- Tailwind
+
+---
+
+### How to run the server:
+
+`cd server && npm install && npm run start`
 You can visit [http://localhost:3002](http://localhost:3002) to check that the service is working correctly and inspect the data it produces.
 
+---
+
 ### How to run you web application
-```cd client && npm install && npm run start```
+
+`cd client && npm install && npm run start`
 You can visit [http://localhost:3000](http://localhost:3000) to check that web app is working correctly.
 
-### How to run tests
-```cd client && npm run test```
+---
 
-## How to complete the task
-1. Clone this repository
-2. Update code in `client` folder
-3. Share with us link to the repository
-4. Send us link to your repository
-5. Will be a plus if hosted also on Heroku
+### Quick Heroku setup guide:
 
-Good luck!
+[https://medium.com/karolis-stulgys/deploy-client-and-server-code-to-heroku-from-a-single-git-repo-44c5b65da10a](https://medium.com/karolis-stulgys/deploy-client-and-server-code-to-heroku-from-a-single-git-repo-44c5b65da10a)
 
-![Horses](https://raw.githubusercontent.com/zakhar-bozhok-jito/jun-frontend-test-task/main/horses.gif)
+---
+
+### WebApp (client folder) is hosted on Heroku:
+
+[https://racing-horses-client.herokuapp.com/](https://racing-horses-client.herokuapp.com/)
+
+### This Server (server folder) is hosted on Heroku:
+
+[https://racing-horses-server.herokuapp.com/](https://racing-horses-server.herokuapp.com/)
+
+---
+
+### How does the app work:
+
+- Simple Start Race button in middle of screen. A
+- After pressing the button is connecting socket.io, you emitting event `socket.emit('start')`, it emit's to server.
+- After that in useEffect you waiting for 'response' event `socket.on('ticker', (data: Horse[]) => { setHorses(data); })` where you have access to data.
+
+## Author of this task / Inspired by :
+
+[https://github.com/zakhar-bozhok-jito](https://github.com/zakhar-bozhok-jito)
