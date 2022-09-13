@@ -12,7 +12,6 @@ const ProgressBar: FC<ProgressBarProps> = memo(({ current, total, title }) => {
   const fillPercentage = calcFillPercentage(current, total);
   const [r, g, b] = useMemo(() => getRandomColor(), []);
   const [ponyMove, setPonyMove] = useState(0);
-  const animation = 'transition-all duration-1000 ease-in-out';
 
   useEffect(() => {
     setPonyMove(current / 2.7);
@@ -26,7 +25,7 @@ const ProgressBar: FC<ProgressBarProps> = memo(({ current, total, title }) => {
           transform: 'translate(-180px, -20%)',
           left: `${ponyMove}px`,
         }}
-        className={`relative ${animation} mt-2`}
+        className='relative animation-bar mt-2'
       >
         <img
           className='w-10'
@@ -43,7 +42,7 @@ const ProgressBar: FC<ProgressBarProps> = memo(({ current, total, title }) => {
             backgroundColor: `rgb(${r},${g},${b})`,
             width: `${fillPercentage}%`,
           }}
-          className={`h-full ${animation}`}
+          className='h-full animation-bar'
         />
       </div>
       {fillPercentage}%

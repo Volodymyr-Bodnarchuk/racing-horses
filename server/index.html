@@ -19,7 +19,7 @@
   <script type="text/javascript">
     'use strict';
     $(document).ready(function () {
-      const socket = io.connect('https://racing-horses-server.herokuapp.com/');
+      const socket = io.connect('http://localhost:3002/');
       socket.emit('start');
       socket.on('ticker', function (response) {
         const res = Array.isArray(response) ? response : [response];

@@ -5,7 +5,7 @@ const io = require('socket.io');
 const cors = require('cors');
 
 const INTERVAL = 1000;
-// const PORT = 3002;
+const PORT = 3002;
 
 const horses = [
   {
@@ -88,8 +88,6 @@ socketServer.on('connection', (socket) => {
   });
 });
 
-server.listen('https://racing-horses-server.herokuapp.com', () => {
-  console.log(
-    `Streaming service is running on https://racing-horses-server.herokuapp.com`
-  );
+server.listen(PORT, () => {
+  console.log(`Streaming service is running on http://localhost:${PORT}`);
 });
